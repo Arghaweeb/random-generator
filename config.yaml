@@ -1,0 +1,21 @@
+node_id: "node-001"
+server_url: "http://localhost:8000"
+api_key: "dev-key-12345"
+
+entropy:
+  chunk_size: 4096
+
+conditioner:
+  algorithm: "sha256"
+
+buffer:
+  capacity_bytes: 1048576
+
+upload:
+  chunk_bytes: 32768
+
+heartbeat:
+  interval_seconds: 5
+
+generation:
+  enabled: true
