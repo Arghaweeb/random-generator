@@ -1,8 +1,10 @@
 __pycache__/
 *.pyc
 .env
-venv/
+
 .idea/
 .vscode/
-
+# Virtual envs
+.venv/
+venv/
 
