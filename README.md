@@ -50,7 +50,24 @@ pytest tests/
 - `POST /v1/nodes/{node_id}/heartbeat` - Send health status
 - `GET /v1/nodes/{node_id}/config` - Get node configuration
 
-## Example Usage
+## Streamlit Web Interface
+
+Launch the interactive web interface for easy interaction with the RNGaaS system:
+
+```bash
+streamlit run streamlit_app.py
+```
+
+The web interface provides:
+- **System Status Dashboard**: Monitor overall health, connected nodes, and buffer levels
+- **Random Data Request**: Generate random bytes with customizable size and format (hex/base64)
+- **Node Configuration Inspector**: View configuration for specific nodes
+- **Manual Chunk Upload**: Simulate node uploads for testing
+- **API Response Log**: Track recent API interactions
+
+Access the interface at http://localhost:8501 (Streamlit default port)
+
+## Example Usage (CLI)
 
 ```bash
 curl "http://localhost:8000/v1/random?bytes=32&format=hex"
