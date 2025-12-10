@@ -150,8 +150,8 @@ if page == "System Status":
                         with col1:
                             status_emoji = "🟢" if node['status'] == 'ok' else "🟡" if node['status'] == 'degraded' else "🔴"
                             st.write(f"**Status:** {status_emoji} {node['status']}")
-                            st.write(f"**State:** {node['state']}")
-                            st.write(f"**Mode:** {node['mode']}")
+                            st.write(f"**State:** {node.get('state', 'N/A')}")
+                            st.write(f"**Mode:** {node.get('mode', 'N/A')}")
 
                         with col2:
                             st.write(f"**Buffer:** {node['buffer_bytes']:,} bytes")
@@ -256,7 +256,9 @@ elif page == "Node Configuration":
                 control = data.get('control', {})
                 st.info(f"**Target State:** {control.get('target_state', 'N/A')}")
                 st.info(f"**Surplus Allowed:** {control.get('surplus_allowed', 'N/A')}")
-                st.info(f"**Max Buffer:** {control.get('max_buffer_bytes', 'N/A'):,} bytes")
+                max_buffer = control.get('max_buffer_bytes', 'N/A')
+                max_buffer_str = f"{max_buffer:,}" if isinstance(max_buffer, int) else max_buffer
+                st.info(f"**Max Buffer:** {max_buffer_str} bytes")
 
             with col2:
                 st.markdown("**Node Identity**")
